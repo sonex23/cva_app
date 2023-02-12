@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "749174309531",
+    "project_id": "cvaapplication",
+    "storage_bucket": "cvaapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749174309531:android:80175aeb5a63db408afc3e",
+        "android_client_info": {
+          "package_name": "com.example.cva_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749174309531-8041rsl3nslsjn9c0jdad2u6tuadipc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSaanIXum6svMEb7iBbss6JQqVHuqVPOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749174309531-8041rsl3nslsjn9c0jdad2u6tuadipc2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

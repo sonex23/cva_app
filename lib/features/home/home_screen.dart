@@ -1,5 +1,7 @@
 import 'package:cva_app/common/theme.dart';
+import 'package:cva_app/features/home/content_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,10 +12,17 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    super.initState();
+    context.read<ContentCubit>().getContent();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               const SizedBox(
@@ -62,12 +71,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Flexible(
                             flex: 1,
-                            child: Center(
-                              child: Text(
-                                'PARTNER',
-                                style: greyTextStyle.copyWith(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
+                            child: GestureDetector(
+                              onTap: () => Navigator.pushNamed(
+                                context,
+                                '/partner-screen',
+                              ),
+                              child: SizedBox(
+                                width: double.infinity,
+                                height: double.infinity,
+                                child: Center(
+                                  child: Text(
+                                    'PARTNER',
+                                    style: greyTextStyle.copyWith(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -287,6 +306,64 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 35,
+              ),
+              Text(
+                'Praktik Baik',
+                style: blackTextStyle.copyWith(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              BlocConsumer<ContentCubit, ContentState>(
+                builder: (context, state) {
+                  if (state.isLoadedState) {
+                    return ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: state.listContent?.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: const EdgeInsets.all(12),
+                            margin: const EdgeInsets.symmetric(
+                              horizontal: 50,
+                              vertical: 4,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: kGreyColor,
+                            ),
+                            child: Column(
+                              children: [
+                                Image.network(
+                                    state.listContent?[index].img ?? ''),
+                                const SizedBox(
+                                  height: 12,
+                                ),
+                                Text(
+                                  state.listContent?[index].title ?? '',
+                                  style: blackTextStyle.copyWith(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        });
+                  } else {
+                    return SizedBox();
+                  }
+                },
+                listener: (context, state) {},
+              ),
+              const SizedBox(
+                height: 70,
+              )
             ],
           ),
         ),
