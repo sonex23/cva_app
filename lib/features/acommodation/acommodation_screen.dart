@@ -33,6 +33,7 @@ class _AcommodationScreenState extends State<AcommodationScreen> {
         ),
       ),
       body: LayoutBuilder(builder: (context, constraints) {
+        print('');
         return SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(
