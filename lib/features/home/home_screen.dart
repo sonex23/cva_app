@@ -93,35 +93,39 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Flexible(
                             flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                left: BorderSide(
-                                  color: Colors.white,
-                                ),
-                                right: BorderSide(
-                                  color: Colors.white,
-                                ),
-                              )),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'TOTAL BANTUAN',
-                                    style: greyTextStyle.copyWith(
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            child: GestureDetector(
+                              onTap: () => Navigator.pushNamed(
+                                  context, '/acommodation-screen'),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: const BoxDecoration(
+                                    border: Border(
+                                  left: BorderSide(
+                                    color: Colors.white,
                                   ),
-                                  Text(
-                                    '6,374 M',
-                                    style: greyTextStyle.copyWith(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w700,
-                                    ),
+                                  right: BorderSide(
+                                    color: Colors.white,
                                   ),
-                                ],
+                                )),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'TOTAL BANTUAN',
+                                      style: greyTextStyle.copyWith(
+                                        fontSize: 8,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    Text(
+                                      '6,374 M',
+                                      style: greyTextStyle.copyWith(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
