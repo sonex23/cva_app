@@ -131,35 +131,39 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Flexible(
                             flex: 1,
-                            child: Container(
-                              width: double.infinity,
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                left: BorderSide(
-                                  color: Colors.white,
-                                ),
-                                right: BorderSide(
-                                  color: Colors.white,
-                                ),
-                              )),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'PENERIMA MANFAAT',
-                                    style: greyTextStyle.copyWith(
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            child: GestureDetector(
+                              onTap: () => Navigator.pushNamed(
+                                  context, '/benefit-screen'),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: const BoxDecoration(
+                                    border: Border(
+                                  left: BorderSide(
+                                    color: Colors.white,
                                   ),
-                                  Text(
-                                    '17.049',
-                                    style: greyTextStyle.copyWith(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w700,
-                                    ),
+                                  right: BorderSide(
+                                    color: Colors.white,
                                   ),
-                                ],
+                                )),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'PENERIMA MANFAAT',
+                                      style: greyTextStyle.copyWith(
+                                        fontSize: 8,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    Text(
+                                      '17.049',
+                                      style: greyTextStyle.copyWith(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -198,7 +202,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       physics: const NeverScrollableScrollPhysics(),
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/cva-screen'),
                           child: Column(
                             children: [
                               Image.asset(

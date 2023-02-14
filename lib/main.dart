@@ -1,4 +1,6 @@
 import 'package:cva_app/features/acommodation/acommodation_screen.dart';
+import 'package:cva_app/features/benefit/benefit_screen.dart';
+import 'package:cva_app/features/cva/cva_screen.dart';
 import 'package:cva_app/features/home/content_cubit.dart';
 import 'package:cva_app/features/home/home_screen.dart';
 import 'package:cva_app/features/intro_screen/intro_screen.dart';
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
           '/main-screen': (context) => const MainScreen(),
           '/partner-screen': (context) => const PartnerScreen(),
           '/acommodation-screen': (context) => const AcommodationScreen(),
+          '/benefit-screen': (context) => const BenefitScreen(),
+          '/cva-screen': (context) => const CvaScreen(),
         },
         initialRoute: '/',
       ),
